@@ -41,8 +41,7 @@ void playGame()
             continue;
         }
 
-        srand(time(0));
-        computer = rand() % 3 + 1;
+        computer = rand() % 3 + 1;   // FIXED RANDOM
 
         color(11);
         printf("\nYou chose: ");
@@ -56,7 +55,6 @@ void playGame()
         else printf("Scissors ✂");
 
         printf("\n\nResult: ");
-        color(10);
 
         if(player == computer) {
             color(14);
@@ -105,6 +103,10 @@ void playGame()
 int main()
 {
     system("cls");
+
+    // FIX: srand should be called ONCE
+    srand(time(0));
+
     color(13);
     printf("=== ROCK - PAPER - SCISSORS GAME ===\n");
     printf("Press any key to start...\n");
